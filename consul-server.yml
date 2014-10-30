@@ -1,0 +1,11 @@
+consulserver:
+  image: consul-python
+  command: -server -bootstrap -log-level=debug
+  ports:
+  - 8400:8400
+  - 8500:8500
+  - "8600:53/udp"
+  - "172.17.42.1:53:53/udp"
+  hostname: node1
+  volumes:
+  - /Users/simon/dev/dockerhackday:/unblocker

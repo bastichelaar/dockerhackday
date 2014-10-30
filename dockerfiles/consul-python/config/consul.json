@@ -5,5 +5,12 @@
 	"ports": {
 		"dns": 53
 	},
-	"recursor": "8.8.8.8"
+	"recursor": "8.8.8.8",
+	"watches": [
+		{
+			"type": "keyprefix",
+			"prefix": "images",
+			"handler": "/bin/unblocker.py"
+		}
+	]
 }
