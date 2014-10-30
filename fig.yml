@@ -9,6 +9,7 @@ consul:
   hostname: node1
   volumes:
   - ./dockerfiles/consul-python/unblocker.py:/bin/unblocker.py
+  - /var/run/docker.sock:/var/run/docker.sock
 
 node2:
   image: consul-python
