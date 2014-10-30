@@ -14,6 +14,8 @@ RUN cd /tmp && unzip /tmp/webui.zip && mv dist /ui && rm /tmp/webui.zip
 ADD https://get.docker.io/builds/Linux/x86_64/docker-1.3.0 /bin/docker
 RUN chmod +x /bin/docker
 
+RUN pip install docker-py
+
 ADD ./config /config/
 ONBUILD ADD ./config /config/
 
