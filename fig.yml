@@ -1,0 +1,19 @@
+consul:
+  image: consul-python
+  command: -server -bootstrap -log-level=debug
+  ports:
+  - 8400:8400
+  - 8500:8500
+  - "8600:53/udp"
+  - "172.17.42.1:53:53/udp"
+  hostname: node1
+
+registrator:
+  image: progrium/registrator
+  links:
+  - consul:consul
+  entrypoint: /bin/sh
+  command: -c "/bin/registrator consul://consul:8500"
+  volumes:
+  - /var/run/docker.sock:/tmp/docker.sock
+
