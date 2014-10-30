@@ -14,4 +14,6 @@ for line in sys.stdin:
 
     if message:
     	for image in message:
-			print image["Key"] + ":" + base64.b64decode(image["Value"])
+			print image["Name"] + ":" + base64.b64decode(image["Payload"])
+			print json.loads(base64.b64decode(image["Payload"]))
+

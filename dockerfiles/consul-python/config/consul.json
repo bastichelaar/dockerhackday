@@ -8,8 +8,8 @@
 	"recursor": "8.8.8.8",
 	"watches": [
 		{
-			"type": "keyprefix",
-			"prefix": "images",
+			"type": "event",
+			"name": "newimage",
 			"handler": "/bin/unblocker.py"
 		}
 	]
