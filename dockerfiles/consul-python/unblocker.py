@@ -13,4 +13,5 @@ for line in sys.stdin:
         continue
 
     if message:
-        print base64.b64decode(message["Value"])
+    	for image in message:
+			print image["Key"] + ":" + base64.b64decode(image["Value"])
