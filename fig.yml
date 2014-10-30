@@ -7,6 +7,8 @@ consul:
   - "8600:53/udp"
   - "172.17.42.1:53:53/udp"
   hostname: node1
+  volumes:
+  - ./dockerfiles/consul-python/unblocker.py:/bin/unblocker.py
 
 node2:
   image: consul-python
