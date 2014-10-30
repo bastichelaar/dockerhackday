@@ -3,7 +3,7 @@ FROM 		ubuntu:14.04
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt-get install -y unzip python python-pip ipython vim nano
+RUN apt-get install -y unzip python python-pip ipython vim nano curl
 
 ADD https://dl.bintray.com/mitchellh/consul/0.4.1_linux_amd64.zip /tmp/consul.zip
 RUN cd /bin && unzip /tmp/consul.zip && chmod +x /bin/consul && rm /tmp/consul.zip

@@ -8,6 +8,17 @@ consul:
   - "172.17.42.1:53:53/udp"
   hostname: node1
 
+node2:
+  image: consul-python
+  command: -join consul
+  links:
+  - consul:consul
+  ports:
+  - 8401:8400
+  - 8501:8500
+  hostname: node2
+
+
 registrator:
   image: progrium/registrator
   links:
