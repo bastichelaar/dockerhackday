@@ -11,23 +11,23 @@ consul:
   - ./dockerfiles/consul-python/unblocker.py:/bin/unblocker.py
   - /var/run/docker.sock:/var/run/docker.sock
 
-node2:
-  image: consul-python
-  command: -join consul
-  links:
-  - consul:consul
-  ports:
-  - 8401:8400
-  - 8501:8500
-  hostname: node2
+# node2:
+#   image: consul-python
+#   command: -join consul
+#   links:
+#   - consul:consul
+#   ports:
+#   - 8401:8400
+#   - 8501:8500
+#   hostname: node2
 
 
-registrator:
-  image: progrium/registrator
-  links:
-  - consul:consul
-  entrypoint: /bin/sh
-  command: -c "/bin/registrator consul://consul:8500"
-  volumes:
-  - /var/run/docker.sock:/tmp/docker.sock
+# registrator:
+#   image: progrium/registrator
+#   links:
+#   - consul:consul
+#   entrypoint: /bin/sh
+#   command: -c "/bin/registrator consul://consul:8500"
+#   volumes:
+#   - /var/run/docker.sock:/tmp/docker.sock
 
