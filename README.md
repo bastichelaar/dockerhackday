@@ -1,13 +1,24 @@
-# dockerhackday
+# Unblocker
+Docker Global Hackday #2 project
 
-- First pull the requested image
-- Loop over the images to get the image's id (this could be parsed from the pull response in step 1)
-- Find container ids of containers with the same image name
-- Start containers with the new image
-- Stop the containers that were old
+## What does unblocker do?
+The idea is that if you push a new image to a Docker registry, all the running containers with an old version of that image are automatically replaced by the new version.
 
-Test with:
+## How does unblocker work?
+Using a [Consul watch](http://www.consul.io/docs/commands/watch.html) we watch the *newimage* event with `unblocker.py` as it's handler. This means that when the *newimage* event is triggered `unblocker.py` gets called with the event's payload as input.
 
+Unblocker then does the following things:
+- Pull the new image
+- Find containers running an older version of the same image by image repo/name
+- Start the same amount of containers with the new image
+- Stop the old containers
+
+The end result is that a Docker Registry only has to fire the *newimage* event to automatically update all running containers to the new image :)
+
+## Demo
+A live-from-terminal demo can be found here https://asciinema.org/a/13551
+
+To try it yourself use below instructions as a guideline:
 ```
 # Build the consul-python container
 docker build -t consul-python dockerfiles/consul-python/
