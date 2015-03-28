@@ -16,7 +16,8 @@ Unblocker then does the following things:
 The end result is that a Docker Registry only has to fire the *newimage* event to automatically update all running containers to the new image :)
 
 ## Demo
-A live-from-terminal demo can be found here https://asciinema.org/a/13551
+
+[![asciicast](https://asciinema.org/a/13551.png)](https://asciinema.org/a/13551)
 
 To try it yourself use below instructions as a guideline:
 ```
